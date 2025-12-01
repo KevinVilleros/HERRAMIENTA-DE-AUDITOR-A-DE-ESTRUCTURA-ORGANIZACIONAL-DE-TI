@@ -1,0 +1,267 @@
+# GUÍA RÁPIDA DE INICIO - HERRAMIENTA DE AUDITORÍA TI
+
+## Que es este software?
+
+Herramienta profesional para **evaluar la estructura organizacional del área de Sistemas de Información (SI)** basada en estándares internacionales (ITIL, ISO 27001, COBIT, COSO).
+
+---
+
+## 3 Formas Rápidas de Usar
+
+### OPCIÓN 1: Ver Demo Automática (30 segundos)
+```bash
+python test_simple.py
+```
+✓ Ejecuta 3 pruebas automáticas  
+✓ Muestra ejemplos de estructura bien/mal configurada  
+✓ Demuestra generación de hallazgos y recomendaciones  
+
+---
+
+### OPCIÓN 2: Interfaz Interactiva (5-10 minutos)
+```bash
+python main.py
+```
+
+Menú principal con opciones:
+1. **Crear Estructura**: Ingresa datos de tu organización
+2. **Ingresar Roles**: Define roles y funciones
+3. **Evaluar**: El sistema analiza automáticamente
+4. **Generar Reporte**: Obtiene hallazgos y recomendaciones
+5. **Base Legal**: Consulta estándares normativos
+6. **Datos de Ejemplo**: Prueba con estructura pre-cargada
+
+---
+
+### OPCIÓN 3: Usar como Biblioteca Python
+
+```python
+from modelos import EstructuraOrganica, Rol
+from motor_evaluacion import MotorDeEvaluacion
+
+# Crear estructura
+estructura = EstructuraOrganica("Mi Empresa SI")
+
+# Agregar roles
+director = Rol("Director de Sistemas de Informacion", nivel=1)
+director.agregar_funcion("Planificacion estrategica de TI")
+director.agregar_funcion("Gestion de riesgos TI")
+estructura.agregar_rol(director)
+
+# Evaluar
+motor = MotorDeEvaluacion()
+cumplimiento, hallazgos = motor.evaluar_estructura(estructura)
+
+# Ver resultados
+print(f"Cumplimiento: {cumplimiento:.2f}%")
+print(f"Hallazgos encontrados: {len(hallazgos)}")
+```
+
+---
+
+## Archivos del Proyecto
+
+| Archivo | Propósito |
+|---------|-----------|
+| **main.py** | Punto de entrada - Interfaz interactiva |
+| **test_simple.py** | 3 pruebas automáticas demostrativas |
+| **modelos.py** | Definición de Rol, Hallazgo, Estructura |
+| **motor_evaluacion.py** | Lógica de auditoría y evaluación |
+| **interfaz.py** | Menú y gestión de usuario |
+| **base_legal.py** | Documentación normativa (ISO, ITIL, COBIT) |
+| **DIAGRAMAS_UML.md** | Diagramas UML completos |
+| **README.md** | Documentación detallada |
+
+---
+
+## Qué Evalúa el Sistema?
+
+### 1. ROLES REQUERIDOS (Mínimo)
+- Director de Sistemas de Informacion
+- Jefe de Operaciones/Infraestructura
+- Jefe de Desarrollo/Software
+- Jefe de Seguridad Informatica
+- Administrador de Bases de Datos
+- Administrador de Sistemas/Red
+
+### 2. FUNCIONES CRÍTICAS (Deben estar asignadas)
+- Planificacion estrategica de TI
+- Gestion de riesgos TI
+- Gestion de seguridad informatica
+- Cumplimiento normativo
+- Gestion de cambios
+- Gestion de incidentes
+- Recuperacion ante desastres
+- Auditoria interna de seguridad
+
+### 3. SEGREGACIÓN DE FUNCIONES (No permitidas juntas)
+- Aprobación + Ejecución de cambios
+- Crear usuario + Asignar permisos
+- Ejecución transacciones + Auditoría
+
+### 4. ESTRUCTURA JERÁRQUICA
+- Cadena de mando clara
+- Supervisores definidos
+- Líneas de reporte únicas
+
+---
+
+## Interpretación de Resultados
+
+### Nivel de Cumplimiento:
+```
+90-100%  → CUMPLIMIENTO ALTO        Estructura adecuada
+70-89%   → CUMPLIMIENTO MODERADO    Requiere mejoras
+50-69%   → CUMPLIMIENTO BAJO        Mejoras urgentes  
+< 50%    → CUMPLIMIENTO CRÍTICO     Reconfiguración necesaria
+```
+
+### Tipos de Hallazgos:
+- **CRÍTICO**: Rol faltante, función no asignada, segregación inadecuada
+- **ALTO**: Sin supervisor, funciones incompletas
+- **MEDIO**: Función duplicada
+- **BAJO**: Advertencias menores
+
+---
+
+## Ejemplo Rápido: Evaluar Tu Estructura
+
+### Paso 1: Iniciar
+```bash
+python main.py
+```
+
+### Paso 2: Crear Estructura
+```
+Opción: 1
+Nombre: "Empresa XYZ"
+Descripción: "Departamento de TI"
+```
+
+### Paso 3: Agregar Roles
+```
+Opción: 2
+  Opción: 1 (Agregar rol)
+    Título: "Director de Sistemas de Informacion"
+    Nivel: 1
+    
+    Opción: 2 (Editar funciones)
+      Agregar: "Planificacion estrategica de TI"
+      Agregar: "Gestion de riesgos TI"
+      Agregar: "Alineacion con negocio"
+      Agregar: "Gestion presupuestaria"
+      
+  (Repetir para otros roles: Jefe Ops, Jefe Desarrollo, Jefe Seguridad, etc)
+```
+
+### Paso 4: Evaluar
+```
+Opción: 3
+(El sistema analiza automáticamente)
+```
+
+### Paso 5: Ver Reporte
+```
+Opción: 4
+(Se muestra:
+ - Cumplimiento %
+ - Hallazgos por gravedad
+ - Recomendaciones de acción
+ - Estructura actual)
+```
+
+---
+
+## Hallazgos Típicos y Cómo Solucionarlos
+
+| Hallazgo | Causa | Solución |
+|----------|-------|----------|
+| "No existe el rol requerido" | Rol faltante | Crear el rol en la estructura |
+| "Función crítica no asignada" | Función no asignada | Asignar a rol responsable |
+| "Funciones incompatibles" | Segregación inadecuada | Separar en roles distintos |
+| "Rol sin supervisor" | Sin jefe directo | Establecer supervisor |
+| "Función duplicada" | Asignada a múltiples roles | Consolidar en un rol |
+
+---
+
+## Documentación Disponible
+
+1. **DIAGRAMAS_UML.md**: 
+   - Diagrama de casos de uso
+   - Diagrama de clases
+   - Diagrama flujo de datos (DFD)
+   - Pseudocódigo del motor
+
+2. **README.md**:
+   - Documentación técnica completa
+   - Ejemplos de código
+   - Troubleshooting
+   - Referencias a estándares
+
+3. **base_legal.py** (en el programa):
+   - ISO/IEC 27001:2022
+   - ITIL v4
+   - COBIT 2019
+   - COSO Framework
+   - Legislación local
+
+---
+
+## Requisitos
+
+- Python 3.7 o superior
+- Windows, Linux o macOS
+- Ninguna librería externa requerida (usa solo stdlib)
+
+---
+
+## Preguntas Frecuentes
+
+**P: ¿Puedo editar los roles después de crearlos?**  
+R: Sí, opción 2 del menú permite agregar/eliminar roles y funciones.
+
+**P: ¿Cómo agrego más funciones a un rol?**  
+R: Menú → 2 (Ingresar Roles) → 2 (Editar funciones) → 1 (Agregar)
+
+**P: ¿Qué pasa si mi estructura tiene más roles que los 6 requeridos?**  
+R: El sistema evalúa contra los mínimos; roles adicionales están permitidos.
+
+**P: ¿Cómo establezco quien supervisa a cada rol?**  
+R: Menú → 2 (Ingresar Roles) → 3 (Establecer supervisor)
+
+**P: ¿Puedo exportar el reporte?**  
+R: El reporte se muestra en pantalla. Puede copiarlo o redirigir salida a archivo.
+
+**P: ¿Qué significa segregación de funciones?**  
+R: Funciones conflictivas no deben estar en el mismo rol (ej: quien aprueba cambios no puede ejecutarlos).
+
+---
+
+## Próximos Pasos
+
+1. **Ejecuta la demo**: `python test_simple.py`
+2. **Prueba la interfaz**: `python main.py` + opción 6 (ejemplo)
+3. **Crea tu estructura**: `python main.py` + opciones 1-4
+4. **Consulta estándares**: `python main.py` + opción 5
+5. **Lee documentación**: `DIAGRAMAS_UML.md` y `README.md`
+
+---
+
+## Versión
+
+- **Versión**: 1.0
+- **Fecha**: 01/12/2025
+- **Lenguaje**: Python 3.7+
+- **Dependencias**: Ninguna (solo stdlib)
+
+---
+
+**¡Comienza ahora!**
+```bash
+python main.py
+```
+o
+```bash
+python test_simple.py
+```
+
