@@ -1,0 +1,153 @@
+# SUBIR A GITHUB - INSTRUCCIONES RAPIDAS
+
+## STATUS ACTUAL
+- ✓ Repositorio Git local creado
+- ✓ 16 archivos committeados
+- ✓ Rama: master (se cambió a main)
+- ⏳ Pendiente: Conectar con GitHub
+
+---
+
+## 3 PASOS PARA SUBIR A GITHUB
+
+### PASO 1: Crear Repositorio en GitHub (2 minutos)
+
+1. Abre https://github.com en tu navegador
+2. Haz clic en el "+" arriba a la derecha → "New repository"
+3. Llena el formulario:
+   ```
+   Repository name:     auditoria-ti-estructura-organizacional
+   Description:         Herramienta de auditoría para estructura organizacional de TI
+   Visibility:          Public
+   ```
+4. **NO** marques "Initialize this repository with README" (ya tienes commits)
+5. Haz clic en "Create repository"
+
+Resultado: Se abrirá una página con instrucciones. Copia la URL que dice:
+```
+https://github.com/TU_USUARIO/auditoria-ti-estructura-organizacional.git
+```
+
+---
+
+### PASO 2: Ejecutar Comandos en PowerShell (1 minuto)
+
+Abre PowerShell en la carpeta del proyecto:
+
+```powershell
+cd "c:\Users\dinop\Desktop\par2"
+```
+
+Luego ejecuta esto (reemplaza `TU_USUARIO` con tu usuario de GitHub):
+
+```powershell
+git branch -M main
+git remote add origin https://github.com/TU_USUARIO/auditoria-ti-estructura-organizacional.git
+git push -u origin main
+```
+
+### Ejemplo si tu usuario es "dinop":
+```powershell
+git branch -M main
+git remote add origin https://github.com/dinop/auditoria-ti-estructura-organizacional.git
+git push -u origin main
+```
+
+---
+
+### PASO 3: Autenticación (2 minutos)
+
+Cuando ejecutes `git push`, te pedirá contraseña. Debes usar un **Token Personal**:
+
+1. Ve a: https://github.com/settings/tokens/new
+2. Completa:
+   - **Token name**: Git CLI Token
+   - **Expiration**: 30 days (o lo que prefieras)
+   - **Select scopes**: Marca `repo`
+3. Haz clic en "Generate token"
+4. **Copia el token** (no lo pierdes de vista!)
+5. Cuando PowerShell pida contraseña, **pega el token**
+
+---
+
+## VERIFICACION
+
+Si todo fue bien, deberías ver en PowerShell algo como:
+
+```
+Enumerating objects: 18, done.
+Counting objects: 100% (18/18), done.
+Writing objects: 100% (18/18), 145.2 KB, done.
+Total 18 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/TU_USUARIO/auditoria-ti-estructura-organizacional.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+```
+
+Luego abre en el navegador:
+```
+https://github.com/TU_USUARIO/auditoria-ti-estructura-organizacional
+```
+
+¡Y deberías ver todos tus archivos subidos! ✓
+
+---
+
+## PROBLEMAS COMUNES
+
+### "Permission denied"
+- Verifica que el token está correcto
+- Intenta copiar/pegar en vez de escribir
+
+### "Repository already exists"
+- Significa que ya hay un repo con ese nombre
+- Usa un nombre diferente: `auditoria-estructura-ti` o similar
+
+### "fatal: not a git repository"
+- Asegúrate de estar en la carpeta: `cd "c:\Users\dinop\Desktop\par2"`
+
+### Git no reconoce comando
+- Instala Git desde: https://git-scm.com/download/win
+
+---
+
+## DESPUES DE SUBIR
+
+### Ver tu proyecto en la web:
+```
+https://github.com/TU_USUARIO/auditoria-ti-estructura-organizacional
+```
+
+### Compartir enlace:
+```
+Puedes compartir: https://github.com/TU_USUARIO/auditoria-ti-estructura-organizacional
+Otros pueden hacer fork, clonar, descargar
+```
+
+### Hacer cambios futuros:
+```powershell
+# Hacer cambios en los archivos
+# Luego:
+git add .
+git commit -m "Descripción del cambio"
+git push
+```
+
+---
+
+## VIDEO ALTERNATIVO
+
+Si prefieres ver un video, busca en YouTube:
+"How to push code to GitHub from command line"
+
+---
+
+## RESUMEN RAPIDO
+
+1. Crea repo vacío en GitHub
+2. Ejecuta 3 comandos git en PowerShell
+3. Pega token cuando pida contraseña
+4. ¡Listo! Tu código está en GitHub
+
+**Tiempo total: 5 minutos**
+
